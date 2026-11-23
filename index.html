@@ -307,7 +307,7 @@
       <h2 class="title-lg">Momentos que guardo en el corazón</h2>
 
       <div class="gallery-card" id="galleryCard">
-        <img id="photoImg" src="IMG_8053.jpg" alt="Nuestro recuerdo" />
+        <img id="photoImg" src="IMG_8053.JPG" alt="Nuestro recuerdo" />
         <div class="nav-arrows">
           <button class="arrow-btn" onclick="prevPhoto()" aria-label="Anterior">‹</button>
           <button class="arrow-btn" onclick="nextPhoto()" aria-label="Siguiente">›</button>
@@ -346,16 +346,29 @@
 
   <script>
     const photos = [
-      { src: "IMG_8053.jpg", caption: "Tu sonrisa siempre logra iluminar cualquiera de mis días ✨" },
-      { src: "IMG_7875.JPG", caption: "Noches especiales que se vuelven inolvidables cuando estoy contigo 🌙" },
-      { src: "IMG_7873.JPG", caption: "Admirando lo hermosa que eres por dentro y por fuera 💫" },
-      { src: "IMG_8060.jpg", caption: "Cada momento a tu lado tiene una magia única ❤️" },
-      { src: "IMG_7877.HEIC", caption: "Ese brillo en tus ojos que me enamora cada día más ✨" },
-      { src: "IMG_7876.HEIC", caption: "Donde el tiempo se detiene y solo importamos tú y yo 💖" },
-      { src: "IMG_7862.HEIC", caption: "Aventuras, risas y todo lo bonito que nos falta por vivir juntos 🌻" }
+      { base: "IMG_8053", caption: "Tu sonrisa siempre logra iluminar cualquiera de mis días ✨" },
+      { base: "IMG_7875", caption: "Noches especiales que se vuelven inolvidables cuando estoy contigo 🌙" },
+      { base: "IMG_7873", caption: "Admirando lo hermosa que eres por dentro y por fuera 💫" },
+      { base: "IMG_8060", caption: "Cada momento a tu lado tiene una magia única ❤️" },
+      { base: "IMG_7877", caption: "Ese brillo en tus ojos que me enamora cada día más ✨" },
+      { base: "IMG_7876", caption: "Donde el tiempo se detiene y solo importamos tú y yo 💖" },
+      { base: "IMG_7862", caption: "Aventuras, risas y todo lo bonito que nos falta por vivir juntos 🌻" }
     ];
 
     let currentPhoto = 0;
+
+    function loadSmartImage(imgEl, baseName) {
+      // Prueba todas las combinaciones posibles automáticamente (.JPG, .jpg, .JPEG, .jpeg)
+      const extensions = [".JPG", ".jpg", ".JPEG", ".jpeg", ".PNG", ".png"];
+      let idx = 0;
+      imgEl.onerror = () => {
+        idx++;
+        if (idx < extensions.length) {
+          imgEl.src = baseName + extensions[idx];
+        }
+      };
+      imgEl.src = baseName + extensions[0];
+    }
 
     function renderPhoto() {
       const img = document.getElementById("photoImg");
@@ -364,7 +377,7 @@
 
       img.style.opacity = 0.3;
       setTimeout(() => {
-        img.src = photos[currentPhoto].src;
+        loadSmartImage(img, photos[currentPhoto].base);
         caption.textContent = photos[currentPhoto].caption;
         img.style.opacity = 1;
       }, 140);
@@ -475,7 +488,7 @@
       gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.4);
 
       osc.connect(gain);
-      oscHarm.connect(harmHarm);
+      oscHarm.connect(harmGain);
       harmGain.connect(gain);
       gain.connect(audioCtx.destination);
 

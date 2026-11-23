@@ -39,7 +39,6 @@
       position: relative;
     }
 
-    /* Corazones flotantes de fondo */
     .hearts-bg {
       position: fixed;
       inset: 0;
@@ -63,7 +62,6 @@
       100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
     }
 
-    /* Botón discreto de audio */
     .music-toggle {
       position: fixed;
       top: 14px;
@@ -84,7 +82,6 @@
       box-shadow: 0 4px 14px rgba(225, 29, 72, 0.12);
     }
 
-    /* Contenedor principal */
     .container {
       position: relative;
       z-index: 10;
@@ -127,33 +124,11 @@
       line-height: 1.18;
     }
 
-    .title-xl {
-      font-size: 34px;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
+    .title-xl { font-size: 34px; font-weight: 700; margin-bottom: 14px; }
+    .title-lg { font-size: 29px; font-weight: 700; margin-bottom: 16px; color: var(--rose-dark); }
+    .subtitle { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 24px; }
 
-    .title-lg {
-      font-size: 29px;
-      font-weight: 700;
-      margin-bottom: 16px;
-      color: var(--rose-dark);
-    }
-
-    .subtitle {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
+    .btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     .btn {
       border: none;
       border-radius: 999px;
@@ -164,37 +139,15 @@
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
-
     .btn:active { transform: scale(0.96); }
-
     .btn-primary {
       background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
       color: #fff;
       box-shadow: 0 10px 24px rgba(225, 29, 72, 0.3);
     }
+    .btn-secondary { background: #fff; color: var(--text-muted); border: 1.5px solid #f3d1dc; }
+    .no-feedback { margin-top: 18px; min-height: 24px; font-size: 14px; font-weight: 600; color: var(--rose); font-style: italic; }
 
-    .btn-primary:hover {
-      box-shadow: 0 12px 28px rgba(225, 29, 72, 0.4);
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      background: #fff;
-      color: var(--text-muted);
-      border: 1.5px solid #f3d1dc;
-    }
-
-    .no-feedback {
-      margin-top: 18px;
-      min-height: 24px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--rose);
-      font-style: italic;
-      transition: opacity 0.3s ease;
-    }
-
-    /* Paso 2: Historia */
     .yes-quote {
       background: #fff1f2;
       border-left: 3.5px solid var(--rose);
@@ -218,17 +171,11 @@
       line-height: 1.75;
       color: #3b2430;
     }
-
     .story-box::-webkit-scrollbar { width: 5px; }
-    .story-box::-webkit-scrollbar-thumb {
-      background: var(--rose-soft);
-      border-radius: 999px;
-    }
-
+    .story-box::-webkit-scrollbar-thumb { background: var(--rose-soft); border-radius: 999px; }
     .story-box p { margin-bottom: 14px; }
     .story-box p:last-child { margin-bottom: 0; }
 
-    /* Paso 3: Galería */
     .gallery-card {
       position: relative;
       border-radius: 20px;
@@ -286,38 +233,12 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
-    .dots {
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      margin-bottom: 20px;
-    }
+    .dots { display: flex; justify-content: center; gap: 6px; margin-bottom: 20px; }
+    .dot { width: 8px; height: 8px; border-radius: 999px; background: #f3c6d3; transition: all 0.3s ease; cursor: pointer; }
+    .dot.active { width: 22px; background: var(--rose); }
 
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #f3c6d3;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .dot.active {
-      width: 22px;
-      background: var(--rose);
-    }
-
-    /* Paso 4: Final */
-    .big-heart {
-      font-size: 54px;
-      margin-bottom: 12px;
-      animation: pulse 1.4s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.14); }
-    }
+    .big-heart { font-size: 54px; margin-bottom: 12px; animation: pulse 1.4s infinite; }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.14); } }
 
     .celebration-box {
       display: none;
@@ -327,11 +248,7 @@
       background: #fff1f2;
       border: 1.5px solid var(--rose-soft);
     }
-
-    .celebration-box.show {
-      display: block;
-      animation: fadeIn 0.5s ease;
-    }
+    .celebration-box.show { display: block; animation: fadeIn 0.5s ease; }
   </style>
 </head>
 <body>
@@ -345,7 +262,7 @@
 
   <main class="container">
 
-    <!-- PASO 1: PREGUNTA INICIAL -->
+    <!-- PASO 1 -->
     <section class="step active" id="step1">
       <span class="badge">Para alguien muy especial</span>
       <h1 class="title-xl">¿ESTÁS LISTA PARA COMENZAR ESTA HISTORIA?</h1>
@@ -357,7 +274,7 @@
       <p class="no-feedback" id="noStartMsg"></p>
     </section>
 
-    <!-- PASO 2: NUESTRA HISTORIA -->
+    <!-- PASO 2 -->
     <section class="step" id="step2">
       <div class="yes-quote">
         “Y así, sin darnos cuenta, dejamos de ser dos personas que coincidieron en el camino, para convertirnos en dos corazones que decidieron caminar juntos. No sé qué nos depare el futuro, pero sí sé que quiero escribirlo contigo, página a página, sonrisa a sonrisa y amor a amor. ❤️”
@@ -367,36 +284,24 @@
 
       <div class="story-box">
         <p>Te conocí hace unos años, en aquella cabaña donde coincidimos como conocidos. Desde ese primer encuentro pude descubrir un poco de lo que eres: una mujer bonita, elegante, profesional y con tantos rasgos maravillosos que, sin darme cuenta, comenzaron a cautivarme. No puedo negarlo, desde aquel momento me fascinaste. Sin embargo, en ese entonces ambos teníamos un compromiso y, por respeto, nuestros caminos debían mantenerse en la distancia.</p>
-
         <p>Aun así, creo que desde aquel momento había algo en ti que se quedó conmigo. Pasó el tiempo, las circunstancias nos alejaron, dejamos de hablar y la vida nos llevó por caminos distintos. Cada uno vivió sus propias experiencias, hasta que, con el pasar de los años, nuestros caminos volvieron a coincidir, esta vez estando ambos solteros.</p>
-
         <p>Recuerdo aquella noche en la que, mientras revisaba Instagram, vi una historia tuya que me hizo pensar que estabas soltera. No sé cómo explicarlo, pero verla despertó en mí una ilusión que hacía mucho tiempo no sentía. Me animé a escribirte y, para mi sorpresa, me respondiste casi de inmediato. Tal vez al principio lo hiciste porque creías conocerme, sin imaginar todo lo que había detrás de aquel mensaje ni cuánto me gustabas realmente.</p>
-
         <p>Poco a poco comenzamos a hablar, y yo, sin esconder mis intenciones, fui expresándote lo que sentía y lo que deseaba contigo. Al principio recibí un no de tu parte, por razones que ambos conocemos y que respeto. Pero no dejamos de hablar. Las conversaciones continuaron, los días pasaron y, lentamente, comenzamos a acercarnos de una manera diferente, hasta que finalmente me diste la oportunidad de llamarte y conocernos un poco más.</p>
-
         <p>Recuerdo aquella presentación relacionada con tu trabajo, ese momento en el que volvimos a encontrarnos y en el que, poco a poco, fui acercándome a ti, buscando ganarme tu confianza. Después llegó nuestra primera cita, esa que tanto deseaba y que, de alguna manera, sentía que me había ganado con paciencia, cariño y sinceridad.</p>
-
         <p>Y qué maravillosa fue aquella cita. Ese día no solo pude compartir contigo, sino descubrir un poco más de la mujer que eres. Me cautivaste aún más. Fue suficiente aquel encuentro para que deseara volver a verte, y tú, con tu manera de ser, me permitiste vivir nuevamente esa ilusión, esta vez en tu apartamento, aunque nuestros encuentros fueran afuera de él.</p>
-
         <p>Desde entonces, fui intentando demostrarte, con palabras, detalles y acciones, que mis intenciones contigo eran sinceras, que no quería algo pasajero, sino algo bonito, algo que valiera la pena construir. Poco a poco fuimos abriendo nuestros corazones, dejando atrás los temores, aprendiendo a confiar, a respetarnos y a querernos.</p>
-
         <p>Y así, sin darme cuenta, nos fuimos enamorando.</p>
-
         <p>Hay algo de ti que siempre me ha fascinado, y son tus ojos. Recuerdo cómo, con el pasar del tiempo, comenzó a cambiar su brillo. Cada vez que te miro, siento que hay algo más profundo, algo que no necesita palabras. Cuando nuestros ojos se encuentran, hay momentos en los que siento que somos uno, que todo se detiene y que, en medio de tantas cosas que suceden en la vida, hemos encontrado un lugar bonito en el corazón del otro.</p>
-
         <p>Hoy, cuando veo ese brillo inmenso en tus ojos, me alegra el alma. Porque siento que no solo brilla tu mirada, sino también todo aquello que hemos venido construyendo juntos. Y me emociona pensar que ese brillo refleja un poquito de todo el amor, la ilusión, la confianza y la felicidad que nos estamos regalando.</p>
-
         <p>Qué bonita manera tuvo la vida de volver a cruzarnos. Lo que comenzó hace años con una admiración silenciosa, hoy se ha convertido en una historia que me llena el corazón. Una historia que no imaginaba, pero que ahora agradezco, porque entre tantos caminos, tantas personas y tantos momentos, tuvimos la oportunidad de encontrarnos nuevamente y elegirnos.</p>
-
         <p>Y si algo deseo, es que sigamos cuidando esta maravillosa historia de amor, que nunca dejemos de mirarnos con la misma ilusión, de valorar lo que somos y de hacer que ese brillo en nuestros ojos nunca desaparezca.</p>
-
         <p><strong>Porque lo que comenzó como una fascinación, hoy se ha convertido en uno de los sentimientos más bonitos que tengo en mi corazón: tú y nuestra historia.</strong></p>
       </div>
 
       <button class="btn btn-primary" onclick="goToStep(3)">Siguiente: Nuestros momentos ✨</button>
     </section>
 
-    <!-- PASO 3: FOTOS -->
+    <!-- PASO 3 -->
     <section class="step" id="step3">
       <span class="badge">Nuestros recuerdos</span>
       <h2 class="title-lg">Momentos que guardo en el corazón</h2>
@@ -415,7 +320,7 @@
       <button class="btn btn-primary" onclick="goToStep(4)">Siguiente ❤️</button>
     </section>
 
-    <!-- PASO 4: LA GRAN PREGUNTA -->
+    <!-- PASO 4 -->
     <section class="step" id="step4">
       <div class="big-heart">💖</div>
       <span class="badge">El siguiente capítulo</span>
@@ -440,36 +345,14 @@
   </main>
 
   <script>
-    // Tus 7 fotos con frases románticas
     const photos = [
-      {
-        src: "IMG_8053.jpg",
-        caption: "Tu sonrisa siempre logra iluminar cualquiera de mis días ✨"
-      },
-      {
-        src: "IMG_7875.jpg",
-        caption: "Noches especiales que se vuelven inolvidables cuando estoy contigo 🌙"
-      },
-      {
-        src: "IMG_7873.jpg",
-        caption: "Admirando lo hermosa que eres por dentro y por fuera 💫"
-      },
-      {
-        src: "IMG_8060.jpg",
-        caption: "Cada momento a tu lado tiene una magia única ❤️"
-      },
-      {
-        src: "IMG_7877.jpg",
-        caption: "Ese brillo en tus ojos que me enamora cada día más ✨"
-      },
-      {
-        src: "IMG_7876.jpg",
-        caption: "Donde el tiempo se detiene y solo importamos tú y yo 💖"
-      },
-      {
-        src: "IMG_7863.jpg",
-        caption: "Aventuras, risas y todo lo bonito que nos falta por vivir juntos 🌻"
-      }
+      { src: "IMG_8053.jpg", caption: "Tu sonrisa siempre logra iluminar cualquiera de mis días ✨" },
+      { src: "IMG_7875.JPG", caption: "Noches especiales que se vuelven inolvidables cuando estoy contigo 🌙" },
+      { src: "IMG_7873.JPG", caption: "Admirando lo hermosa que eres por dentro y por fuera 💫" },
+      { src: "IMG_8060.jpg", caption: "Cada momento a tu lado tiene una magia única ❤️" },
+      { src: "IMG_7877.HEIC", caption: "Ese brillo en tus ojos que me enamora cada día más ✨" },
+      { src: "IMG_7876.HEIC", caption: "Donde el tiempo se detiene y solo importamos tú y yo 💖" },
+      { src: "IMG_7862.HEIC", caption: "Aventuras, risas y todo lo bonito que nos falta por vivir juntos 🌻" }
     ];
 
     let currentPhoto = 0;
@@ -490,37 +373,23 @@
       photos.forEach((_, idx) => {
         const dot = document.createElement("span");
         dot.className = "dot" + (idx === currentPhoto ? " active" : "");
-        dot.onclick = () => {
-          currentPhoto = idx;
-          renderPhoto();
-        };
+        dot.onclick = () => { currentPhoto = idx; renderPhoto(); };
         dotsContainer.appendChild(dot);
       });
     }
 
-    function nextPhoto() {
-      currentPhoto = (currentPhoto + 1) % photos.length;
-      renderPhoto();
-    }
+    function nextPhoto() { currentPhoto = (currentPhoto + 1) % photos.length; renderPhoto(); }
+    function prevPhoto() { currentPhoto = (currentPhoto - 1 + photos.length) % photos.length; renderPhoto(); }
 
-    function prevPhoto() {
-      currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
-      renderPhoto();
-    }
-
-    // Deslizar con el dedo en celular
     let touchStartX = 0;
     const galleryCard = document.getElementById("galleryCard");
-    galleryCard.addEventListener("touchstart", e => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
+    galleryCard.addEventListener("touchstart", e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
     galleryCard.addEventListener("touchend", e => {
       const diff = e.changedTouches[0].screenX - touchStartX;
       if (diff < -40) nextPhoto();
       if (diff > 40) prevPhoto();
     }, { passive: true });
 
-    // Navegación entre pasos
     function goToStep(stepNumber) {
       startPianoMusic();
       document.querySelectorAll(".step").forEach(s => s.classList.remove("active"));
@@ -528,23 +397,15 @@
       if (stepNumber === 3) renderPhoto();
     }
 
-    function handleYesStart() {
-      startPianoMusic();
-      goToStep(2);
-    }
-
+    function handleYesStart() { startPianoMusic(); goToStep(2); }
     function handleNoStart() {
       startPianoMusic();
-      const msg = document.getElementById("noStartMsg");
-      msg.textContent = "Creo que ese botón está dañado… intenta nuevamente, sospecho que querías decir YES.";
+      document.getElementById("noStartMsg").textContent = "Creo que ese botón está dañado… intenta nuevamente, sospecho que querías decir YES.";
     }
-
     function dodgeNoFinal() {
       startPianoMusic();
-      const msg = document.getElementById("noFinalMsg");
-      msg.textContent = "Creo que ese botón está dañado… intenta nuevamente, sospecho que querías decir ¡SÍ, QUIERO! ❤️";
+      document.getElementById("noFinalMsg").textContent = "Creo que ese botón está dañado… intenta nuevamente, sospecho que querías decir ¡SÍ, QUIERO! ❤️";
     }
-
     function acceptProposal() {
       startPianoMusic();
       document.getElementById("finalButtons").style.display = "none";
@@ -553,7 +414,6 @@
       launchHeartsBurst();
     }
 
-    // Corazones flotantes
     function initFloatingHearts() {
       const bg = document.getElementById("heartsBg");
       const symbols = ["❤️", "💖", "💕", "✨"];
@@ -582,13 +442,11 @@
       }
     }
 
-    // Melodía romántica de piano (Web Audio API)
     let audioCtx = null;
     let isPlaying = false;
     let melodyTimer = null;
     let noteIndex = 0;
 
-    // Progresión romántica suave en Do mayor / La menor
     const notes = [
       261.63, 329.63, 392.00, 493.88, 523.25, 493.88, 392.00, 329.63,
       220.00, 261.63, 329.63, 392.00, 440.00, 392.00, 329.63, 261.63,
@@ -617,7 +475,7 @@
       gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.4);
 
       osc.connect(gain);
-      oscHarm.connect(harmGain);
+      oscHarm.connect(harmHarm);
       harmGain.connect(gain);
       gain.connect(audioCtx.destination);
 
@@ -632,9 +490,7 @@
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         audioCtx = new AudioContext();
       }
-      if (audioCtx.state === "suspended") {
-        audioCtx.resume();
-      }
+      if (audioCtx.state === "suspended") audioCtx.resume();
       if (isPlaying) return;
 
       isPlaying = true;
@@ -664,7 +520,6 @@
       document.getElementById("musicLabel").textContent = isPlaying ? "Sonando" : "Activar música";
     }
 
-    // Intentar iniciar música al cargar y en la primera interacción del usuario
     window.addEventListener("load", () => {
       initFloatingHearts();
       try { startPianoMusic(); } catch (e) {}
